@@ -3,3 +3,5 @@ image:
 tasks:
   - name: Running MongoDB
     command: mkdir -p data && mongod --dbpath data
+  - name: Running nodemon
+    command: npm start
