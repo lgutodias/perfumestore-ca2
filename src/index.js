@@ -8,13 +8,9 @@ const app = express();
 const port = 8000;
 
 app.use(bodyParser.json());
+app.use(morgan('tiny'));
+app.use(require('./routes'));
 
-app.get('/hello/:foo/:bar', (req, res) => {
-    res.json({message: 'Hello BScBest!', data: [
-        req.params.foo,
-        req.params.bar
-    ]});
-});
 
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
