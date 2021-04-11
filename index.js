@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const axios = require('axios');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 const port = 8000;
@@ -12,6 +13,12 @@ app.use(morgan('tiny'));
 app.use(require('./routes'));
 
 
+
+const dbURI = "mongodb://localhost/test";
+
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then((result) => console.log('MongoDB is successfully connected'))
+        .catch((err) => console.log(err));
 
 
 app.listen(port, function(err){
