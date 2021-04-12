@@ -1,13 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-var itemCtrl = require('./item-controller');
 
-router.get('/hello', itemCtrl.getWorld);
+var perfumeController = require('./perfume-controller');
 
-router.get('/hello/:foo/:bar', itemCtrl.getWorldParams);
+router.post('/perfumes', perfumeController.createPerfume);
 
-router.post('/hello', itemCtrl.postWorld);
+// router.get('/hello', itemCtrl.getWorld);
+
+// router.get('/hello/:foo/:bar', itemCtrl.getWorldParams);
+
+// router.post('/hello', itemCtrl.postWorld);
 
 
 module.exports = router;
