@@ -11,7 +11,14 @@ exports.createPerfume = function(req, res) {
 });
 };
 
-
+exports.getPerfumes = function(req, res) {
+  Perfume.find({}, function (err, perfumes) {
+    if (err) {
+      res.status(400).json(err); 
+    } 
+    res.json(perfumes);
+  });
+};
 
 
 
