@@ -7,12 +7,6 @@ var perfumeController = require('./perfume-controller');
 router.get('/perfumes', perfumeController.getPerfumes);
 router.post('/perfumes', perfumeController.createPerfume);
 
-// router.get('/hello', itemCtrl.getWorld);
-
-// router.get('/hello/:foo/:bar', itemCtrl.getWorldParams);
-
-// router.post('/hello', itemCtrl.postWorld);
-
 
 module.exports = router;
 
