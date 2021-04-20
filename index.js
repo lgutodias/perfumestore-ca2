@@ -13,6 +13,7 @@ const port = 8000;
 app.use(express.static(path.resolve(__dirname, 'views')));
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('tiny'));
 app.use(require('./routes'));
 
@@ -22,11 +23,11 @@ app.use(require('./routes'));
 
 // });
 
-app.get('/get/html', function(req, res) {
+// app.get('/get/html', function(req, res) {
 
-    res.writeHead(200, {'Content-Type': 'text/html'}); //We are responding to the client that the content served back is HTML and the it exists (code 200)
+//     res.writeHead(200, {'Content-Type': 'text/html'}); //We are responding to the client that the content served back is HTML and the it exists (code 200)
 
-});
+// });
 
 
 

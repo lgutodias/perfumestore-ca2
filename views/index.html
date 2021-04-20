@@ -66,17 +66,17 @@
                 <div class="content-box">
                     <div class="container">
                         <p>Add new items to our perfume catalog:</p>
-                        <form enctype="application/json" action="/post/json" method="post">
+                        <form enctype="application/json" action="/perfumes" method="POST">
                             <div class="form-group">
-                                <select class="form-control" name="sec_n">
+                                <!-- <select class="form-control" name="sec_n">
                                     <option value="0">Women's Perfumes</option>
                                     <option value="1">Men's Perfumes</option>
-                                </select>
-                                <input class="form-control mt-3" type="text" name="brand" placeholder="Brand">
-                                <input class="form-control mt-3" type="text" name="name" placeholder="Name">
-                                <input class="form-control mt-3" type="text" name="size" placeholder="Size">
-                                <input class="form-control mt-3" type="text" name="price" placeholder="Price">
-                                <button type="submit" class="btn btn-save btn-block mt-3">Save</button>
+                                </select> -->
+                                <input type="text" name="brand">
+                                <input type="text" name="name">
+                                <input type="text" name="size">
+                                <input type="text" name="price">
+                                <button type="submit" id="btn-save">Save</button>
                             </div>
                         </form>
                         <p>Delete items from our perfume catalog, select the item in the table and press delete.</p>
@@ -96,8 +96,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <!-- <script src="js/PerfumeStore.js"></script> -->
     <script src="./js/table.js"></script>
+    
 
-    <script>
+    <!-- <script>
         window.addEventListener("load", function () {
             document.forms[0].txtBillAmt.value = calculateBill('perfumeTable');
             document.querySelector("#calcBill").addEventListener("click", function () {
@@ -107,7 +108,12 @@
                 highlightSale('perfumeTable', this.checked);
             });
         });
-    </script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('btn-save').addEventListener('click', createPerfume);
+        });
+
+    </script> -->
 </body>
 
 </html>
