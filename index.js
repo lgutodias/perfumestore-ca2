@@ -8,6 +8,12 @@ const mongoose = require('mongoose');
 
 const app = express();
 const port = 8000;
+
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'html');
+
+
+// app.set('views', __dirname + '/views');
 // app.set('view engine', 'html');
 
 app.use(express.static(path.resolve(__dirname, 'views')));

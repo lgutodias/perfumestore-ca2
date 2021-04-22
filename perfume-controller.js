@@ -1,38 +1,35 @@
 var Perfume = require('./models/perfume')
 
-exports.createPerfume = function(req, res) { 
+exports.createPerfume = function (req, res) {
     var newperfume = new Perfume(req.body);
-    newperfume.save(function (err, perfume) { 
-        if (err) { 
-            res.status (400).json(err);
+    newperfume.save(function (err, perfume) {
+        if (err) {
+            res.status(400).json(err);
         }
 
-        res.json(perfume); 
-});
+        res.json(perfume);
+    });
 };
 
-exports.getPerfumes = function(req, res) {
-  Perfume.find({}, function (err, perfumes) {
-    if (err) {
-      res.status(400).json(err); 
-    } 
-    res.json(perfumes)
-  });
+exports.getPerfumes = function (req, res) {
+    Perfume.find({}, function (err, perfumes) {
+        if (err) {
+            res.status(400).json(err);
+        }
+        res.json(perfumes)
+    });
 };
 
+exports.deletePerfume = function (req, res) {
+    const array = req.body
 
+    Perfume.findByIdAndRemove(array, function (err, perfumes) {
+        if (array) {
 
-// exports.getWorld = function(req, res){
-//     res.json({result: 'Hello World from Controller'});
-// };
-
-// exports.getWorldParams = function(req, res) {
-//     res.json({message: 'Hello BScBest!', data: [
-//         req.params.foo,
-//         req.params.bar
-//     ]});
-// };
-
-// exports.postWorld = function(req, res) {
-//     res.json({result: 'Post was sent', data: req.body});
-// };
+            for (let i = 0; i < array.length; i++) {
+                console.log(array[i])
+            }
+        }
+        res.sendfile('index.html');
+    });
+};
