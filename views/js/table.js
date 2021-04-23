@@ -61,21 +61,21 @@ var myArray = []
 // };
 
 
-document.getElementById('delete').addEventListener('click', function () {
-    const perfumesEl = document.getElementsByClassName('select')
-    array = []
-    for (let prop in perfumesEl) {
-        if (perfumesEl[prop].checked)
-            array.push(perfumesEl[prop].dataset.perfume)
-    }
-    console.log(array)
-    if (array.length > 0) {
-        deleteData('perfumes', array)
-            .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
-            });
-    }
-})
+// document.getElementById('delete').addEventListener('click', function () {
+//     const perfumesEl = document.getElementsByClassName('select')
+//     array = []
+//     for (let prop in perfumesEl) {
+//         if (perfumesEl[prop].checked)
+//             array.push(perfumesEl[prop].dataset.perfume)
+//     }
+//     console.log(array)
+//     if (array.length > 0) {
+//         deleteData('perfumes', array)
+//             .then(data => {
+//                 console.log(data); // JSON data parsed by `data.json()` call
+//             });
+//     }
+// })
 
 async function deleteData(url = '', data = {}) {
     // Default options are marked with *
@@ -89,3 +89,19 @@ async function deleteData(url = '', data = {}) {
     });
     return response.json(); // parses JSON response into native JavaScript objects
 }
+
+    document.getElementById('update').addEventListener('click', function () {
+    const perfumesEl = document.getElementsByClassName('select')
+    var teste = new Array(0);
+    for (let prop in perfumesEl) {
+        if (perfumesEl[prop].checked)
+            teste.push(perfumesEl[prop].dataset.perfume)
+    }
+    console.log(teste)
+    // if (array.length > 0) {
+    //     deleteData('perfumes', array)
+    //         .then(data => {
+    //             console.log(data); // JSON data parsed by `data.json()` call
+    //         });
+    // }
+})

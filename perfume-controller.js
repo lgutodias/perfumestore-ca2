@@ -20,6 +20,15 @@ exports.getPerfumes = function (req, res) {
     });
 };
 
+exports.updatePerfume = function(req, res) {
+  Perfume.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true}, function (err, perfumes) {
+    if (err) {
+      res.status(400).json(err); 
+    } 
+    res.json(perfumes);
+  }); 
+};
+
 exports.deletePerfume = function (req, res) {
     const array = req.body
 
@@ -30,6 +39,6 @@ exports.deletePerfume = function (req, res) {
                 console.log(array[i])
             }
         }
-        res.sendfile('index.html');
+        res.json('Successful');
     });
 };
