@@ -75,11 +75,11 @@
                                 <input type="text" name="name">
                                 <input type="text" name="size">
                                 <input type="text" name="price">
-                                <button type="submit" id="btn-save">Save</button>
+                                <button type="submit" class="btn btn-save btn-block mt-3">Save</button>
                             </div>
                         </form>
                         <p>Delete items from our perfume catalog, select the item in the table and press delete.</p>
-                        <button id="update">Delete</button>
+                        <button id="delete" class="btn btn-delete btn-block mt-3">Delete</button>
                     </div>
                 </div>
             </div>
@@ -94,6 +94,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="./js/table-functions.js"></script>
     <script src="./js/table.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            document.forms[0].txtBillAmt.value = calculateBill('perfumeTable');
+            document.querySelector("#calcBill").addEventListener("click", function () {
+                document.forms[0].txtBillAmt.value = calculateBill('perfumeTable');
+            });
+            document.querySelector("#showSale").addEventListener("click", function () {
+                highlightSale('perfumeTable', this.checked);
+            });
+        });
+    </script>
     
 
     
