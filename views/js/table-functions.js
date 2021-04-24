@@ -2,6 +2,7 @@ function calculateBill() {
     var fBillTotal = 0.0;
     var i = 0;
     var aCBTags = document.querySelectorAll('input');
+    
     for (i = 0; i < aCBTags.length; i++) {
         // is this menu item selected? it is if the checkbox is checked
         if (aCBTags[i].checked) {

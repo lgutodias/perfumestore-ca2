@@ -34,7 +34,7 @@
         </div>
         <div class="row">
             <div class="col-lg-8">
-                <!-- <div id="myTable" class="table-resposive"></div> -->
+                <!-- <div class="table-resposive"></div> -->
                 <table id="myTable">
                     <tr>
                         <th>Select</th>
@@ -79,7 +79,7 @@
                             </div>
                         </form>
                         <p>Delete items from our perfume catalog, select the item in the table and press delete.</p>
-                        <button id="delete" class="btn btn-delete btn-block mt-3">Delete</button>
+                        <button id="delete" onclick="alertClick()" class="btn btn-delete btn-block mt-3">Delete</button>
                     </div>
                 </div>
             </div>
@@ -95,6 +95,11 @@
     <script src="./js/table-functions.js"></script>
     <script src="./js/table.js"></script>
     <script>
+
+        function alertClick() {
+            alert('Salvo com sucesso!')
+        }
+
         window.addEventListener("load", function () {
             document.forms[0].txtBillAmt.value = calculateBill('perfumeTable');
             document.querySelector("#calcBill").addEventListener("click", function () {
