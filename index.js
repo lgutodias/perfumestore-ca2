@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
@@ -37,7 +39,7 @@ app.use(require('./routes'));
 
 
 
-const dbURI = "mongodb+srv://master:QK4rLkiIMjHrMlCt@cluster0.ymrn8.mongodb.net/perfume_store?retryWrites=true&w=majority";
+const dbURI = process.env.MONGO_URL
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
         .then((result) => console.log('MongoDB is successfully connected'))
