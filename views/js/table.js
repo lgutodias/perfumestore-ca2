@@ -20,13 +20,19 @@ var myArray = []
 							<td>${myArray[i].name}</td>
                             <td>${myArray[i].size}</td>
                             <td>${myArray[i].price}</td>
+                            <td><button id="Bosta" onclick="alertClick()" class="edit btn2 btn-primary btn-block mt-3"
+                                    data-id=${myArray[i]._id}
+                                    data-brand=${myArray[i].brand}
+                                    data-name=${myArray[i].name}
+                                    data-size=${myArray[i].size}
+                                    data-price=${myArray[i].price}>Edit</button></td>
 					  </tr>`
 			table.innerHTML += row
 
 
 		}
-	}
-
+    }
+    
 
 
 // $(document).ready(function () {
@@ -72,8 +78,10 @@ document.getElementById('delete').addEventListener('click', function () {
     if (array.length > 0) {
         deleteData('perfumes', array)
             .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
-            });
+                console.log(data);
+                window.location.reload();
+            })
+            .catch(err => console.log(err))
     };
 });
 

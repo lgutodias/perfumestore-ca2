@@ -41,6 +41,6 @@ exports.deletePerfume = function (req, res) {
             }
         }
         // res.json('Successful');
-        res.redirect('/');
+        // res.redirect('/');
     });
 };

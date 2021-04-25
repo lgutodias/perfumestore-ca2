@@ -35,14 +35,18 @@
         <div class="row">
             <div class="col-lg-8">
                 <!-- <div class="table-resposive"></div> -->
-                <table id="myTable">
-                    <tr>
-                        <th>Select</th>
-                        <th>Brand</th>
-                        <th>Name</th>
-                        <th>Size</th>
-                        <th>Price</th>
-                    </tr>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>Brand</th>
+                            <th>Name</th>
+                            <th>Size</th>
+                            <th>Price</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable"></tbody>
                 </table>
                 <form>
                     <div class="input-group">
@@ -65,16 +69,17 @@
                 <div class="content-box">
                     <div class="container">
                         <p>Add new items to our perfume catalog:</p>
-                        <form enctype="application/json" action="/perfumes" method="POST">
+                        <form>
                             <div class="form-group">
                                 <!-- <select class="form-control" name="sec_n">
                                     <option value="0">Women's Perfumes</option>
                                     <option value="1">Men's Perfumes</option>
                                 </select> -->
-                                <input type="text" name="brand">
-                                <input type="text" name="name">
-                                <input type="text" name="size">
-                                <input type="text" name="price">
+                                <input type="text" id="brand">
+                                <input type="text" id="name">
+                                <input type="text" id="size">
+                                <input type="text" id="price">
+                                <input type="hidden" id="perfumeId">
                                 <button type="submit" class="btn btn-save btn-block mt-3">Save</button>
                             </div>
                         </form>
@@ -92,12 +97,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="./js/table-functions.js"></script>
     <script src="./js/table.js"></script>
+    <script src="./js/table-functions.js"></script>
+
     <script>
 
         function alertClick() {
             alert('Salvo com sucesso!')
+        }
+
+        function Bosta() {
+            for (let i = 0; i < edit.length; i++) {
+                edit[i].addEventListener('click', function () {
+                    editRequest(edit[i])
+                    alert('Bosta')
+
+                })
+            }
         }
 
         window.addEventListener("load", function () {
@@ -110,9 +126,9 @@
             });
         });
     </script>
-    
 
-    
+
+
 </body>
 
 </html>

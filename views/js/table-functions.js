@@ -18,25 +18,25 @@ function calculateBill() {
     return Math.round(fBillTotal * 100.0) / 100.0;
 };
 
-function highlightSale(idTable, bShowSale) {
-    // if bShowSale is true, then we're highlighting vegetarian
-    //	meals, otherwise we're unhighlighting them.
-    var i = 0;
-    var oTable = document.getElementById(idTable);
-    var oTBODY = oTable.getElementsByTagName('tbody')[0];
-    var aTRs = oTBODY.getElementsByTagName('tr');
-    // walk through each of the table rows and see if it has a 
-    // "vegetarian" attribute on it.
-    for (i = 0; i < aTRs.length; i++) {
-        if (aTRs[i].getAttribute('sale') == "true") {
-            if (bShowSale) {
-                aTRs[i].style.backgroundColor = "rgb(243,213,165)";
-            } else {
-                aTRs[i].style.backgroundColor = "";
-            };
-        };
-    };
-};
+// function highlightSale(idTable, bShowSale) {
+//     // if bShowSale is true, then we're highlighting vegetarian
+//     //	meals, otherwise we're unhighlighting them.
+//     var i = 0;
+//     var oTable = document.getElementById(idTable);
+//     var oTBODY = oTable.getElementsByTagName('tbody')[0];
+//     var aTRs = oTBODY.getElementsByTagName('tr');
+//     // walk through each of the table rows and see if it has a 
+//     // "vegetarian" attribute on it.
+//     for (i = 0; i < aTRs.length; i++) {
+//         if (aTRs[i].getAttribute('sale') == "true") {
+//             if (bShowSale) {
+//                 aTRs[i].style.backgroundColor = "rgb(243,213,165)";
+//             } else {
+//                 aTRs[i].style.backgroundColor = "";
+//             };
+//         };
+//     };
+// };
 // Utility function for getting the parent tag of a given tag
 // but only of a certain type (i.e. a TR, a TABLE, etc.)
 function getParentTag(oNode, sParentType) {
@@ -48,3 +48,52 @@ function getParentTag(oNode, sParentType) {
     };
     return oParent;
 };
+
+
+// ---------------------
+
+let brand = document.getElementById('brand')
+let name = document.getElementById('name')
+let size = document.getElementById('size')
+let price = document.getElementById('price')
+let id = document.getElementById('perfumeId')
+let edit = document.querySelectorAll('button.edit')
+
+function Bosta() {
+for(let i = 0; i < edit.length; i++){
+     edit[i].addEventListener('click' , function(){
+        editRequest(edit[i])
+        alert('Bosta')
+
+    })
+}
+}
+
+function editRequest(el){
+    id.value =`${el.dataset.id}`
+    brand.value =`${el.dataset.brand}`
+    name.value =`${el.dataset.name}`
+    size.value =`${el.dataset.size}`
+    price.value =`${el.dataset.price}`
+}
+
+// function getFormValue(){
+//     return data = {
+//          id: id.value,
+//          genre: genre.value,
+//          title: title.value,
+//          author: author.value,
+//          publisher: publisher.value,
+//          price: price.value
+//     }
+
+// }
+
+// document.getElementById('update').addEventListener("click", function () {
+//     const data = getFormValue()
+//     console.log(data)
+//     updateData('/books', getFormValue())
+//         .then(data => alert("Updated successfully"))
+//         .catch(err => alert("failed"))
+//     window.location.reload()
+// })
