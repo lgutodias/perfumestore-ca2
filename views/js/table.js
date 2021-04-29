@@ -20,38 +20,20 @@ var myArray = []
 							<td>${myArray[i].name}</td>
                             <td>${myArray[i].size}</td>
                             <td>${myArray[i].price}</td>
-                            <td><button id="Bosta" onclick="alertClick()" class="btn-update"
+                            <td><button onclick="onEdit(this)" class="btn-update"
                                     data-id=${myArray[i]._id}
                                     data-brand=${myArray[i].brand}
                                     data-name=${myArray[i].name}
                                     data-size=${myArray[i].size}
-                                    data-price=${myArray[i].price}>Update</button></td>
+                                    data-price=${myArray[i].price}>Update</button>
+                                <button onclick="deleteTest1()" class="btn-update">Delete</button>
+                            </td>
 					  </tr>`
 			table.innerHTML += row
 
 
 		}
     }
-    
-
-
-// $(document).ready(function () {
-//         $.getJSON('perfumes', function (data) {
-//             var perfumeData = '';
-//             $.each(data, function (key, value) {
-//                 perfumeData += '<tr>';
-//                 perfumeData += '<td>'+ '<input class="select" type="checkbox" data-perfume="<%= value._id %>">' + '</td>';
-//                 perfumeData += '<td>' + value.brand + '</td>';
-//                 perfumeData += '<td>' + value.name + '</td>';
-//                 perfumeData += '<td>' + value.size + '</td>';
-//                 perfumeData += '<td>' + value.price + '</td>';
-//                 perfumeData += '</tr>';
-//             });
-//             $('#results').append(perfumeData);
-//         });
-//     });
-
-
 
 
 //     function select_row()
@@ -67,23 +49,38 @@ var myArray = []
 // };
 
 
-document.getElementById('delete').addEventListener('click', function () {
+// document.getElementById('delete').addEventListener('click', function () {
+//     const perfumesEl = document.getElementsByClassName('select')
+//     array = []
+//     for (let prop in perfumesEl) {
+//         if (perfumesEl[prop].checked)
+//             array.push(perfumesEl[prop].dataset.perfume)
+//     }
+//     console.log(array)
+//     if (array.length > 0) {
+//         deleteData('perfumes', array)
+//             .then(data => {
+//                 console.log(data);
+//                 window.location.reload();
+//             })
+//             .catch(err => console.log(err))
+//     };
+// });
+
+// Funcao de teste novo botao delete
+
+function deleteTest1() {
     const perfumesEl = document.getElementsByClassName('select')
-    array = []
-    for (let prop in perfumesEl) {
-        if (perfumesEl[prop].checked)
-            array.push(perfumesEl[prop].dataset.perfume)
-    }
-    console.log(array)
-    if (array.length > 0) {
-        deleteData('perfumes', array)
-            .then(data => {
-                console.log(data);
-                window.location.reload();
-            })
-            .catch(err => console.log(err))
-    };
-});
+    const productId = perfumesEl.dataset.perfume
+    console.log(productId);
+
+}
+
+
+
+
+// final
+
 
 async function deleteData(url = '', data = {}) {
     // Default options are marked with *
