@@ -22,7 +22,7 @@ exports.getPerfumes = function (req, res) {
 };
 
 exports.updatePerfume = function(req, res) {
-  Perfume.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true}, function (err, perfumes) {
+  Perfume.findByIdAndUpdate(FormData, req.body, {new: true}, function (err, perfumes) {
     if (err) {
       res.status(400).json(err); 
     } 

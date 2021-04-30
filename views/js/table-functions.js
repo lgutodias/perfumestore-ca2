@@ -1,5 +1,3 @@
-var selectedRow = null;
-
 function calculateBill() {
     var fBillTotal = 0.0;
     var i = 0;
@@ -54,63 +52,45 @@ function getParentTag(oNode, sParentType) {
 
 // ---------------------
 
-// let brand = document.getElementById('brand')
-// let name = document.getElementById('name')
-// let size = document.getElementById('size')
-// let price = document.getElementById('price')
-// let id = document.getElementById('perfumeId')
-// let edit = document.querySelectorAll('button.edit')
 
-// function Bosta() {
-// for(let i = 0; i < edit.length; i++){
-//      edit[i].addEventListener('click' , function(){
-//         editRequest(edit[i])
-//         alert('Bosta')
 
-//     })
-// }
-// }
 
-// function editRequest(el){
-//     id.value =`${el.dataset.id}`
-//     brand.value =`${el.dataset.brand}`
-//     name.value =`${el.dataset.name}`
-//     size.value =`${el.dataset.size}`
-//     price.value =`${el.dataset.price}`
+
+
+
+
+// function onEdit(td) {
+//     selectedRow = td.parentElement.parentElement;
+//     const element = document.getElementsByClassName("select");
+//     document.getElementById("perfumeId").value = element.dataset.perfume;
+//     document.getElementById("brand").value = selectedRow.cells[1].innerHTML;
+//     document.getElementById("name").value = selectedRow.cells[2].innerHTML;
+//     document.getElementById("size").value = selectedRow.cells[3].innerHTML;
+//     document.getElementById("price").value = selectedRow.cells[4].innerHTML;
+//     console.log(element);
 // }
 
+// function getFormValue() {
+//     return data = {
+//         id: id.value,
+//         brand: brand.value,
+//         name: name.value,
+//         size: size.value,
+//         price: price.value
+//     }
 
+// }
 
-// document.getElementById('update').addEventListener("click", function () {
-//     const data = getFormValue()
-//     console.log(data)
-//     updateData('/books', getFormValue())
-//         .then(data => alert("Updated successfully"))
-//         .catch(err => alert("failed"))
-//     window.location.reload()
-// })
-
-
-function onEdit(td) {
-    selectedRow = td.parentElement.parentElement;
-    document.getElementById("brand").value = selectedRow.cells[1].innerHTML;
-    document.getElementById("name").value = selectedRow.cells[2].innerHTML;
-    document.getElementById("size").value = selectedRow.cells[3].innerHTML;
-    document.getElementById("price").value = selectedRow.cells[4].innerHTML;
+function readFormData() {
+    var formData = {};
+    formData["idPerfume"] = document.getElementById("perfumeId").dataset.perfume;
+    formData["brand"] = document.getElementById("brand").value;
+    formData["name"] = document.getElementById("name").value;
+    formData["size"] = document.getElementById("size").value;
+    formData["price"] = document.getElementById("price").value;
+    return formData;
+    console.log(formData);
 }
-
-function getFormValue() {
-    return data = {
-        id: id.value,
-        genre: genre.value,
-        title: title.value,
-        author: author.value,
-        publisher: publisher.value,
-        price: price.value
-    }
-
-}
-
 
 async function updateData(url = '', data = {}) {
     // Default options are marked with *
@@ -124,3 +104,12 @@ async function updateData(url = '', data = {}) {
     });
     return response.json(); // parses JSON response into native JavaScript objects
 }
+
+document.getElementById('update').addEventListener("click", function () {
+    const data = readFormData()
+    console.log(data)
+    updateData('/perfumes', readFormData())
+        .then(data => alert("Updated successfully"))
+        .catch(err => alert("failed"))
+    window.location.reload()
+})

@@ -20,7 +20,7 @@ var myArray = []
 							<td>${myArray[i].name}</td>
                             <td>${myArray[i].size}</td>
                             <td>${myArray[i].price}</td>
-                            <td><button onclick="onEdit(this)" class="btn-update"
+                            <td><button class="edit"
                                     data-id=${myArray[i]._id}
                                     data-brand=${myArray[i].brand}
                                     data-name=${myArray[i].name}

@@ -90,6 +90,14 @@ td {
     margin-bottom: 0px;
 }
 
+.select {
+    margin-top: 7px;
+    height: 20px;
+    width: 20px;
+    border-radius: 2px;
+    background-color: #eee;
+}
+
 .btn-calc {
     background-color: rgb(0, 97, 226, 0.8);
     color: #FFF;
@@ -105,7 +113,7 @@ td {
     color: #FFF;
 }
 
-.btn-update {
+.edit {
     background-color: crimson;
     height: 30px;
     border-radius: 5px;
