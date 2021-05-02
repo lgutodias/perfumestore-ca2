@@ -60,12 +60,12 @@
                 </form>
             </div>
             <div class="col-lg-4">
-                <form>
+                <!-- <form>
                     <div class="highlight">
                         <input type="checkbox" id="showSale" aria-label="Checkbox for input" />
                         <label>Highlight items on sale</label>
                     </div>
-                </form>
+                </form> -->
                 <div class="content-box">
                     <div class="container">
                         <p>Add new items to our perfume catalog:</p>
@@ -121,9 +121,6 @@
             document.forms[0].txtBillAmt.value = calculateBill('perfumeTable');
             document.querySelector("#calcBill").addEventListener("click", function () {
                 document.forms[0].txtBillAmt.value = calculateBill('perfumeTable');
-            });
-            document.querySelector("#showSale").addEventListener("click", function () {
-                highlightSale('perfumeTable', this.checked);
             });
         });
     </script>
