@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-var perfumeSchema = new mongoose.Schema({ 
+var perfumeSchema = new mongoose.Schema({
+    section: String,
     brand: String,
     name: String,
     size: String,
