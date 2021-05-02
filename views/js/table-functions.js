@@ -44,6 +44,7 @@ document.getElementById('delete').addEventListener('click', function () {
         deleteData('perfumes', array)
             .then(data => {
                 console.log(data);
+                alert('Item successfully deleted!')
                 window.location.reload();
             })
             .catch(err => console.log(err))

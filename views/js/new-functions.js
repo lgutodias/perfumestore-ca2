@@ -14,7 +14,6 @@ for (let i = 0; i < edit.length; i++) {
 }
 
 function editRequest(el) {
-    alert('Que bosta!');
     id.value = `${el.dataset.id}`
     brand.value = `${el.dataset.brand}`
     name.value = `${el.dataset.name}`
