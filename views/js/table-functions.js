@@ -1,3 +1,6 @@
+var selectedRow = null;
+var selectedRow1 = null;
+
 function calculateBill() {
     var fBillTotal = 0.0;
     var i = 0;
@@ -59,16 +62,17 @@ function getParentTag(oNode, sParentType) {
 
 
 
-// function onEdit(td) {
-//     selectedRow = td.parentElement.parentElement;
-//     const element = document.getElementsByClassName("select");
-//     document.getElementById("perfumeId").value = element.dataset.perfume;
-//     document.getElementById("brand").value = selectedRow.cells[1].innerHTML;
-//     document.getElementById("name").value = selectedRow.cells[2].innerHTML;
-//     document.getElementById("size").value = selectedRow.cells[3].innerHTML;
-//     document.getElementById("price").value = selectedRow.cells[4].innerHTML;
-//     console.log(element);
-// }
+function onEdit(td) {
+    selectedRow = td.parentElement.parentElement;
+    selectedRow1 = input.parentElement;
+    const element = document.getElementsByClassName('select');
+    document.getElementById("perfumeId").value = selectedRow1.cells[0].innerHTML;
+    document.getElementById("brand").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("name").value = selectedRow.cells[2].innerHTML;
+    document.getElementById("size").value = selectedRow.cells[3].innerHTML;
+    document.getElementById("price").value = selectedRow.cells[4].innerHTML;
+    console.log(element);
+}
 
 // function getFormValue() {
 //     return data = {

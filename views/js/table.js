@@ -20,13 +20,12 @@ var myArray = []
 							<td>${myArray[i].name}</td>
                             <td>${myArray[i].size}</td>
                             <td>${myArray[i].price}</td>
-                            <td><button class="edit"
-                                    data-id=${myArray[i]._id}
+                            <td><button class="edit btn2 btn-primary" onclick="onEdit(this)"
+                                    data-id="${myArray[i]._id}"
                                     data-brand=${myArray[i].brand}
                                     data-name=${myArray[i].name}
                                     data-size=${myArray[i].size}
                                     data-price=${myArray[i].price}>Update</button>
-                                <button onclick="deleteTest1()" class="btn-update">Delete</button>
                             </td>
 					  </tr>`
 			table.innerHTML += row
