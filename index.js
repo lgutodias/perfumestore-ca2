@@ -46,6 +46,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
         .catch((err) => console.log(err));
 
 
-app.listen(port, function(err){
+app.listen(process.env.PORT || port, function(err){
     console.log('Listening on port: ' + port);
 });
