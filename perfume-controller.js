@@ -6,8 +6,6 @@ exports.createPerfume = function (req, res) {
         if (err) {
             res.status(400).json(err);
         }
-
-        // res.json(perfume);
         res.redirect('/');
     });
 };
@@ -40,7 +38,6 @@ exports.deletePerfume = function (req, res) {
                 console.log(array[i])
             }
         }
-        // res.json('Successful');
-        // res.redirect('/');
+        res.json('Successful');
     });
 };

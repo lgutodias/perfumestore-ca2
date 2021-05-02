@@ -69,22 +69,22 @@
                 <div class="content-box">
                     <div class="container">
                         <p>Add new items to our perfume catalog:</p>
-                        <form>
-                            <div class="form-group">
+                        <form enctype="application/json" action="/perfumes" method="POST" autocomplete="off">
+                            <div class="form-group" >
                                 <!-- <select class="form-control" name="sec_n">
                                     <option value="0">Women's Perfumes</option>
                                     <option value="1">Men's Perfumes</option>
                                 </select> -->
-                                <input type="text" id="perfumeId">
-                                <input type="text" id="brand">
-                                <input class="form-control mt-3" type="text" id="name">
-                                <input class="form-control mt-3" type="text" id="size">
-                                <input class="form-control mt-3" type="text" id="price">
+                                <!-- <input type="text" id="perfumeId"> -->
+                                <input class="form-control mt-3" type="text" name="brand" id="brand" placeholder="Brand">
+                                <input class="form-control mt-3" type="text" name="name" id="name" placeholder="Name">
+                                <input class="form-control mt-3" type="text" name="size" id="size" placeholder="Size">
+                                <input class="form-control mt-3" type="text" name="price" id="price" placeholder="Price">
                                 <button type="submit" class="btn btn-save btn-block mt-3">Save</button>
                             </div>
                         </form>
                         <p>Delete items from our perfume catalog, select the item in the table and press delete.</p>
-                        <button id="update" onclick="alertClick()" class="btn btn-delete btn-block mt-3">Delete</button>
+                        <button id="delete" class="btn btn-delete btn-block mt-3">Delete</button>
                     </div>
                 </div>
             </div>

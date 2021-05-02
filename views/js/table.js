@@ -48,23 +48,6 @@ var myArray = []
 // };
 
 
-// document.getElementById('delete').addEventListener('click', function () {
-//     const perfumesEl = document.getElementsByClassName('select')
-//     array = []
-//     for (let prop in perfumesEl) {
-//         if (perfumesEl[prop].checked)
-//             array.push(perfumesEl[prop].dataset.perfume)
-//     }
-//     console.log(array)
-//     if (array.length > 0) {
-//         deleteData('perfumes', array)
-//             .then(data => {
-//                 console.log(data);
-//                 window.location.reload();
-//             })
-//             .catch(err => console.log(err))
-//     };
-// });
 
 // Funcao de teste novo botao delete
 
@@ -81,18 +64,7 @@ function deleteTest1() {
 // final
 
 
-async function deleteData(url = '', data = {}) {
-    // Default options are marked with *
-    const response = await fetch(url, {
-        method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
-        headers: {
-            'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
-}
+
 
     // document.getElementById('update').addEventListener('click', function () {
     // const perfumesEl = document.getElementsByClassName('select')

@@ -1,5 +1,4 @@
 var selectedRow = null;
-var selectedRow1 = null;
 
 function calculateBill() {
     var fBillTotal = 0.0;
@@ -21,25 +20,6 @@ function calculateBill() {
     return Math.round(fBillTotal * 100.0) / 100.0;
 };
 
-// function highlightSale(idTable, bShowSale) {
-//     // if bShowSale is true, then we're highlighting vegetarian
-//     //	meals, otherwise we're unhighlighting them.
-//     var i = 0;
-//     var oTable = document.getElementById(idTable);
-//     var oTBODY = oTable.getElementsByTagName('tbody')[0];
-//     var aTRs = oTBODY.getElementsByTagName('tr');
-//     // walk through each of the table rows and see if it has a 
-//     // "vegetarian" attribute on it.
-//     for (i = 0; i < aTRs.length; i++) {
-//         if (aTRs[i].getAttribute('sale') == "true") {
-//             if (bShowSale) {
-//                 aTRs[i].style.backgroundColor = "rgb(243,213,165)";
-//             } else {
-//                 aTRs[i].style.backgroundColor = "";
-//             };
-//         };
-//     };
-// };
 // Utility function for getting the parent tag of a given tag
 // but only of a certain type (i.e. a TR, a TABLE, etc.)
 function getParentTag(oNode, sParentType) {
@@ -53,6 +33,39 @@ function getParentTag(oNode, sParentType) {
 };
 
 
+document.getElementById('delete').addEventListener('click', function () {
+    const perfumesEl = document.getElementsByClassName('select')
+    array = []
+    for (let prop in perfumesEl) {
+        if (perfumesEl[prop].checked)
+            array.push(perfumesEl[prop].dataset.perfume)
+    }
+    console.log(array)
+    if (array.length > 0) {
+        deleteData('perfumes', array)
+            .then(data => {
+                console.log(data);
+                window.location.reload();
+            })
+            .catch(err => console.log(err))
+    };
+});
+
+
+async function deleteData(url = '', data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
+
+
 // ---------------------
 
 
@@ -64,7 +77,6 @@ function getParentTag(oNode, sParentType) {
 
 function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
-    selectedRow1 = input.parentElement;
     const element = document.getElementsByClassName('select');
     document.getElementById("perfumeId").value = selectedRow1.cells[0].innerHTML;
     document.getElementById("brand").value = selectedRow.cells[1].innerHTML;
@@ -109,11 +121,11 @@ async function updateData(url = '', data = {}) {
     return response.json(); // parses JSON response into native JavaScript objects
 }
 
-document.getElementById('update').addEventListener("click", function () {
-    const data = readFormData()
-    console.log(data)
-    updateData('/perfumes', readFormData())
-        .then(data => alert("Updated successfully"))
-        .catch(err => alert("failed"))
-    window.location.reload()
-})
+// document.getElementById('update').addEventListener("click", function () {
+//     const data = readFormData()
+//     console.log(data)
+//     updateData('/perfumes', readFormData())
+//         .then(data => alert("Updated successfully"))
+//         .catch(err => alert("failed"))
+//     window.location.reload()
+// })
